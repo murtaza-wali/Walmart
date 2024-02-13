@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="countryModel"
+            type="com.practice.walmart.model.Country" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_4sdp">
+
+
+        <View
+            android:id="@+id/viewSupporter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/imageTvShow" />
+
+        <View
+            android:id="@+id/viewBackground"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/background_country_show"
+            android:paddingBottom="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/linearTxtLayout" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageTvShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="@dimen/_4sdp" />
+
+        <LinearLayout
+            android:id="@+id/linearTxtLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageTvShow"
+            app:layout_constraintTop_toTopOf="@id/imageTvShow"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/countryName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:fontFamily="@font/ubuntu_medium"
+                android:includeFontPadding="false"
+                android:paddingTop="@dimen/_12sdp"
+                android:text='@{ countryModel.name }'
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="@dimen/_13ssp"
+                />
+
+            <TextView
+                android:id="@+id/countryRegion"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_regular"
+                android:includeFontPadding="false"
+                android:textColor="@color/colorTextOther"
+                android:textSize="@dimen/_12ssp"
+                android:text='@{countryModel.region }'
+              />
+            <TextView
+                android:id="@+id/countryCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="@font/ubuntu_regular"
+                android:includeFontPadding="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                android:text='@{  countryModel.code }'/>
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/dbn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:includeFontPadding="false"
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="@dimen/_12ssp"
+            android:text='@{countryModel.capital }'
+            app:layout_constraintEnd_toEndOf="@id/linearTxtLayout"
+            app:layout_constraintStart_toStartOf="@id/linearTxtLayout"
+            app:layout_constraintTop_toBottomOf="@id/linearTxtLayout" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
