@@ -11,6 +11,7 @@ Ensures clean and production-level networking code.
 Displaying Data:
 Implements a RecyclerView to display the list of countries.
 Orders the countries by their position in the JSON.
+Search filtered country by name or capital
 Shows country information (name, region, code, capital) in a specified format within each RecyclerView item.
 Robust Implementation:
 Handles errors and edge cases gracefully, ensuring a smooth user experience.
