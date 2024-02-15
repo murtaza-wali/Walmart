@@ -1,5 +1,4 @@
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,9 +7,10 @@ import com.practice.walmart.model.Country
 import com.practice.walmart.R
 import com.practice.walmart.databinding.CountryListItemBinding
 
-
-class CountryAdapter(private val context: Context, private val countryList: List<Country>) :
+class CountryAdapter(private val context: Context, private var countryList: List<Country>) :
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
+
+    private var filteredList: List<Country> = countryList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -21,11 +21,16 @@ class CountryAdapter(private val context: Context, private val countryList: List
     }
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
-        holder.bind(countryList[position])
+        holder.bind(filteredList[position])
     }
 
     override fun getItemCount(): Int {
-        return countryList.size
+        return filteredList.size
+    }
+
+    fun filterList(filteredList: List<Country>) {
+        this.filteredList = filteredList
+        notifyDataSetChanged()
     }
 
     inner class CountryViewHolder(private val binding: CountryListItemBinding) :
@@ -34,8 +39,6 @@ class CountryAdapter(private val context: Context, private val countryList: List
         fun bind(country: Country) {
             binding.countryModel = country
             binding.executePendingBindings()
-
-
         }
     }
 }

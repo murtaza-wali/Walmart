@@ -31,16 +31,20 @@
             android:layout_height="?actionBarSize"
             android:background="@color/colorprmarydark"
             android:gravity="center_horizontal"
-            android:padding="@dimen/_8sdp"
+            android:clickable="true"
+            android:focusable="true"
+
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/textViewCountriesList"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_weight="1"
                 android:maxLines="1"
+                android:padding="@dimen/_8sdp"
                 android:ellipsize="end"
                 android:gravity="center|start"
                 android:fontFamily="@font/ubuntu_bold"
@@ -49,24 +53,45 @@
                 android:textColor="@color/colorTextIcons"
                 android:textSize="@dimen/_14ssp"/>
 
-            <ImageView
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
-                android:contentDescription="@string/app_name"
-                android:padding="@dimen/_2sdp"
-                android:src="@drawable/ic_watchlist"
-                app:tint="@color/colorTextIcons" />
+
 
             <ImageView
+                android:id="@+id/imageViewSearch"
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/_8sdp"
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/_2sdp"
                 android:src="@drawable/ic_search"
                 app:tint="@color/colorTextIcons" />
-
+            <ImageView
+                android:id="@+id/closeSearch"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/_2sdp"
+                android:visibility="gone"
+                android:src="@drawable/baseline_close_24"
+                app:tint="@color/colorTextIcons" />
+            <EditText
+                android:id="@+id/editTextSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search..."
+                android:textColorHint="@color/teal_200"
+                android:inputType="text"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:padding="@dimen/_4sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/edit_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/layoutHeader"
+                app:layout_constraintTop_toTopOf="@id/layoutHeader" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
