@@ -1,17 +1,10 @@
-# Description
-The task involves fetching a list of countries from a provided URL in JSON format and displaying them in a RecyclerView.
-The RecyclerView displays each country's name, region, code, and capital in a specific format.
-The implementation focuses on robustness, error handling, and supporting device rotation.
-
-
-Key Features
 Fetching Data:
 Utilizes coroutines for asynchronous network calls to fetch data from the provided URL.
 Ensures clean and production-level networking code.
 Displaying Data:
 Implements a RecyclerView to display the list of countries.
 Orders the countries by their position in the JSON.
-Search filtered country by name or capital
+Search filtered country by name or capital.
 Shows country information (name, region, code, capital) in a specified format within each RecyclerView item.
 Robust Implementation:
 Handles errors and edge cases gracefully, ensuring a smooth user experience.
